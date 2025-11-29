@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TransporteController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\TransportistaController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -20,7 +21,7 @@ Route::get('/saludo', function () {
 Route::prefix('transportes')->controller(TransporteController::class)->group(function () {
     Route::get('/', 'index');     
     // Route::get('{id}', 'show');   
-    // Route::post('/', 'store');    
+    Route::post('/', 'store');    
     // Route::put('{id}', 'update'); 
     // Route::delete('{id}', 'destroy'); 
 });
@@ -29,6 +30,14 @@ Route::prefix('proveedores')->controller(ProveedorController::class)->group(func
     Route::get('/', 'index');     
     // Route::get('{id}', 'show');   
     // Route::post('/', 'store');    
+    // Route::put('{id}', 'update'); 
+    // Route::delete('{id}', 'destroy'); 
+});
+
+Route::prefix('transportistas')->controller(TransportistaController::class)->group(function () {
+    Route::get('/', 'index');     
+    // Route::get('{id}', 'show');   
+    Route::post('/', 'store');    
     // Route::put('{id}', 'update'); 
     // Route::delete('{id}', 'destroy'); 
 });
